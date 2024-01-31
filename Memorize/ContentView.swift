@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    let emojis = ["👻", "😈", "🎃", "🕷️"]
+    
     var body: some View {
-        CardView(content: "👻")
-            .padding()
+        cards.padding()
+    }
+    
+    var cards: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+            ForEach(0..<emojis.count, id: \.self) { index in
+                CardView(content: emojis[index])
+                    .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+            }
+        }
+        .foregroundColor(.red)
     }
 }
 
