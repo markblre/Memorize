@@ -52,7 +52,9 @@ struct ContentView: View {
     
     func themeChooser (symbol: String, label: String, emojis: [String], colorOfTheme: Color) -> some View {
         Button (action: {
-            currentEmojis = (emojis + emojis).shuffled()
+            let numberOfPairsOfCards = Int.random(in: 2..<emojis.count)
+            let emojisToUse = emojis.shuffled()[0..<numberOfPairsOfCards]
+            currentEmojis = (emojisToUse + emojisToUse).shuffled()
             mainColor = colorOfTheme
         }, label: {
             VStack {
