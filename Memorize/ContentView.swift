@@ -32,7 +32,7 @@ struct ContentView: View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 70))]) {
             ForEach(0..<currentEmojis.count, id: \.self) { index in
                 CardView(content: currentEmojis[index])
-                    .aspectRatio(2/3, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    .aspectRatio(2/3, contentMode: .fill)
             }
         }
         .foregroundColor(mainColor)
